@@ -1,0 +1,79 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(187, 255, 0);
+    background-image: url('https://static.wikia.nocookie.net/c9dde1fd-8d96-4288-97ea-6dca45a39891/scale-to-width/755');
+
+}
+
+h1 {
+    text-align: center;
+}
+
+h1:hover {
+    color: rgb(0, 8, 255);
+    font-size: 300%;
+}
+
+h1::first-letter {
+    color: rgb(255, 0, 0);
+    font-size: larger;
+}
+
+h1:hover::first-letter {
+    color: rgb(0, 255, 26);
+    font-size: 400%;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: rgb(255, 174, 0);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(255, 0, 128);
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+#section1 {
+    opacity: 0.8;
+    background-color: rgb(206, 134, 172);
+    color: rgb(0, 255, 0);
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#section2 {
+    opacity: 1;
+    background-color: rgb(177, 134, 206);
+    color: rgb(0, 255, 0);
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#Desserts {
+    opacity: 0.8;
+    background-color: skyblue;
+    color: rgb(255, 149, 0);
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}

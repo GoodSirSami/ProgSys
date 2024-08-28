@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+    SDC 2024-08-21
+    Voici mon en-tete de fichier pour les commentaires...
+-->
+<html>
+    <head>
+        <title>FCD</title>
+        <meta charset="UTF-8">
+        <style>
+            body {
+              font-family: Arial, Helvetica, sans-serif;
+              color: rgba(241, 195, 27, 0.827);
+              font-size: 50px;
+              background-color: rgb(126, 54, 54);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Welcome!</h1>
+            <p>This is a fortified cerklift driver!</p>
+            <a href="file:///Users/samueldc24/Documents/Ecole/A24/ProgSys/Atelier1/Code/Atelier1.html">Visitez nous!</a>
+        </div>
+        <div>
+            <img src="https://nfe-lifts.com/wp-content/uploads/2018/08/how-to-properly-change-the-forks-on-your-forklift.jpg" alt="Fortified Cerklift Driver" title="Fortified Cerklift Driver">
+            <p>Visitor counter :</p> 
+        </div>
+        <div id="CounterVisitor">
+        </div>
+        <script>
+            var n = localStorage.getItem('on_load_counter');
+            
+            if (n === null) {
+              n = 0;
+            }
+            n++;
+            
+            localStorage.setItem("on_load_counter", n);
+            
+            nums = n.toString().split('').map(Number);
+            document.getElementById('CounterVisitor').innerHTML = '';
+            for (var i of nums) {
+              document.getElementById('CounterVisitor').innerHTML += '<span class="counter-item">' + i + '</span>';
+            }
+            
+        </script>
+    </body>
+</html>
