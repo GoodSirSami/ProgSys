@@ -14,21 +14,95 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="./raphael-2.1.4.min.js"></script>
+    <script src="./justgage.js"></script>
 </head>
 
 <body>
+    <h2>pipicaca</h2>
     <p id="canard">j'ai 1 canard</p>
+    <a href="./Code.html">Refresh</a>
+    <p id="hour">hh:mm:ss</p>
+    <div id="hours" class="200x160px"></div>
+    <div id="minute" class="200x160px"></div>
+    <div id="second" class="200x160px"></div>
+    
     <script>
-        window.onload = function () {
-            alert("Bonjour 1");
-        }
-    </script>
-    <script>
+        var hours = 0;
+        var minutes = 0;
+        var seconds = 0;
+        var h = new JustGage({
+            id: "hours",
+            value: 0,
+            min: 0,
+            max: 24,
+            title: "Heure",
+            label: "h",
+            levelColors: ["#FF0000", "#00FF00", "#0000FF"],
+            gaugeWidthScale: 0.6,
+            startAnimationTime: 1,
+            startAnimationType: "linear",
+            refreshAnimationTime: 1,
+            refreshAnimationType: "linear"
+        });
+        var m = new JustGage({
+            id: "minute",
+            value: 0,
+            min: 0,
+            max: 60,
+            title: "Minute",
+            label: "m",
+            levelColors: ["#FF0000", "#00FF00", "#0000FF"],
+            gaugeWidthScale: 0.6,
+            startAnimationTime: 1,
+            startAnimationType: "linear",
+            refreshAnimationTime: 1,
+            refreshAnimationType: "linear"
+        });
+        var s = new JustGage({
+            id: "second",
+            value: 0,
+            min: 0,
+            max: 60,
+            title: "Seconde",
+            label: "s",
+            levelColors: ["#FF0000", "#00FF00", "#0000FF"],
+            gaugeWidthScale: 0.6,
+            startAnimationTime: 1,
+            startAnimationType: "linear",
+            refreshAnimationTime: 1,
+            refreshAnimationType: "linear"
+        });
+
         $(document).ready(function () {
-            alert("Bonjour 2");
-            $("#canard").text("j'ai 2 canards");
+            alert("Bonjour 1");
+
+            function updateTime() {
+                var now = new Date();
+                hours = now.getHours();
+                minutes = now.getMinutes();
+                seconds = now.getSeconds();
+                var timeString = hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
+                $("#hour").text(timeString);
+
+                h.refresh(hours);
+                m.refresh(minutes);
+                s.refresh(seconds);
+            }
+
+            updateTime();
+            setInterval(updateTime, 1000);
+            
         });
     </script>
+    <script>
+        var newCount = 1;
+        $("#canard").click(function () {
+            newCount++;
+            alert("Bonjour " + newCount);
+            $("#canard").append("<br>" + "j'ai " + newCount + " canard");
+        });
+    </script>]
 </body>
 
 <footer>

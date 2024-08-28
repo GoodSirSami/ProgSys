@@ -2,9 +2,17 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: rgb(187, 255, 0);
     background-image: url('https://static.wikia.nocookie.net/c9dde1fd-8d96-4288-97ea-6dca45a39891/scale-to-width/755');
-
+    text-align: center;
+    width: 50%;
+    margin: auto;
 }
 
+ul {
+    list-style-position: inside;
+}
+ol {
+    list-style-position: inside;
+}
 h1 {
     text-align: center;
 }
@@ -76,4 +84,43 @@ a:active {
     border-radius: 10px;
     margin: 20px;
     padding: 20px;
+}
+
+table {
+    color: royalblue;
+    font-weight: bolder;
+    width: 100%;
+    border: 10px solid rgb(255, 255, 255);
+    border-style: groove;
+    background-color: brown;
+    opacity: 0.8;
+}
+
+td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+#Escargots {
+    opacity: 0.8;
+    background-color: rgb(255, 0, 0);
+    color: rgb(0, 255, 0);
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+footer {
+    background-color: rgb(170, 37, 37);
+    opacity: 0.8;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    position: relative;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px dashed white;
 }
