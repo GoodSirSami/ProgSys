@@ -3,12 +3,14 @@ var app = express();
 
 app.set('view engine', 'ejs');
 
+app.use(express.static('./public'));
+
 app.get('/', function (req, res) {
-    res.render('acceuil');
+    res.render('pages/index', {title: 'Hello World', message: 'Hello World!'});
 });
 
-app.get('/users', function (req, res) {
-    res.render('users');
+app.get('/about', function (req, res) {
+    res.render('pages/about', {title: 'About', message: 'About page'});
 });
 
 app.use(function (req, res, next) {
