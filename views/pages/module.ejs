@@ -10,7 +10,12 @@
 
     <h2 class="text-center">Module</h2>
 
-    <p class="text-center">Voici le module <%= module %></p>
+    <p class="text-center">Module <%= module %> est à : </p>
+    <% if(status == 1){ %>
+        <p class="text-success text-center">ON</p>
+    <% }else{ %>
+        <p class="text-danger text-center">OFF</p>
+    <% } %>
     <%-include('../partials/footer.ejs') %>
 </body>
 
