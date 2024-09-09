@@ -1,15 +1,20 @@
 {
   "name": "progsyslab3",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "main": "code.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Samuel Des Cormiers",
   "license": "ISC",
-  "description": "",
+  "description": "Laboratoire 3",
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoodSirSami/ProgSys/tree/master"
   }
 }

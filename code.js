@@ -1,3 +1,10 @@
+/**
+ * @date 2024-09-09
+ * @author Samuel Des Cormiers
+ * @description Code pour le laboratoire 3
+ * @version 3.0
+ */
+
 var express = require('express');
 var app = express();
 
