@@ -13,8 +13,8 @@ app.get('/about', function (req, res) {
     res.render('pages/about', {title: 'About', message: 'About page'});
 });
 
-app.get('/annee', function (req, res) {
-    res.render('pages/annee', {title: 'Annees', message: 'Annees page'});
+app.get('/annee/:annee/:mois', function(req, res) {
+    res.render('./pages/annee.ejs', {annee: req.params.annee, mois: req.params.mois});
 });
 
 app.use(function (req, res, next) {

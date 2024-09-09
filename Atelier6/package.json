@@ -2,5 +2,15 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2"
-  }
+  },
+  "name": "atelier6",
+  "version": "2.0.2",
+  "description": "Petit site en ejs",
+  "main": "code.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samuel Des Cormiers",
+  "license": "ISC"
 }
