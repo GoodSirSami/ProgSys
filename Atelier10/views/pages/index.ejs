@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="FR">
+
+<head>
+    <%-include('../partials/head.ejs')%>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:8080');
+    </script>
+</head>
+
+<body class="pt-0 pb-0">
+    <%-include('../partials/header.ejs') %>
+
+    <div class="jumbotron jumbotron-fluid pt-5">
+        <div class="container-fluid">
+            <h1 class="text-center">Home</h1>
+            <p class="text-center">Welcome to templating using EJS</p>
+            <br>
+            <img src="/images/451078746_1057719925685565_3902903204352845128_n.jpg"
+                class="mx-auto d-block rounded-circle" width="10%" alt="Image">
+            <br>
+            <p id="hourin" class="text-center">hh:mm:ss</p>
+            <p id="hours" class="text-center">Heure : 0</p>
+            <div class="alert alert-success" id="alertsocket">
+                <button type="button" class="close" id="closes">&times;</button>
+                <strong>Alerte!</strong> Vous êtes connecté au serveur
+            </div>
+        </div>
+    </div>
+    <br>
+    <%-include('../partials/footer.ejs') %>
+    <script>
+        var hours = 0;
+        var minutes = 0;
+        var seconds = 0;
+        var annee = 0;
+        var mois = 0;
+        var jour = 0;
+        socket.on('message', function(message) {
+            $('#alertsocket').show();
+            var now = new Date();
+            hours = now.getHours();
+            minutes = now.getMinutes();
+            seconds = now.getSeconds();
+            jour = now.getDay();
+            mois = now.getMonth() + 1;
+            annee = now.getFullYear();
+
+            var timeString = "La date d'accès au site : " + annee.toString()+ "/" + mois.toString().padStart(2, "0") + "/"+ jour.toString().padStart(2, "0") + " " + hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0")
+            $("#hourin").text(timeString);
+            function updateTime() {
+
+                now = new Date();
+                hours = now.getHours();
+                minutes = now.getMinutes();
+                seconds = now.getSeconds();
+                jour = now.getDay();
+                mois = now.getMonth() + 1;
+                annee = now.getFullYear();
+                timeString = "La date actuelle : " + annee.toString()+ "/" + mois.toString().padStart(2, "0") + "/"+ jour.toString().padStart(2, "0") + " " + hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0")
+                $("#hours").text(timeString);
+            }
+
+            updateTime();
+            setInterval(updateTime, 1000);
+        });
+
+        $('#closes').click(function () {
+            $('#alertsocket').hide();
+        });
+    </script>    
+</body>
+
+</html>

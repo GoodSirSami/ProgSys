@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  },
+  "name": "atelier10",
+  "version": "1.0.0",
+  "description": "Petit site en ejs",
+  "main": "code.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samuel Des Cormiers",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "progsys"
+  }
+}
