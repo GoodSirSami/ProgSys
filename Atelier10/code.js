@@ -14,6 +14,12 @@ app.get('/', function (req, res) {
 io.sockets.on('connection', function (socket) {
     console.log('Un client est connecté !');
     socket.emit('message', 'Vous êtes bien connecté !');
+    
+    socket.on('time', function (time) {
+        console.log('L\'heure d\'alarme est : ' + time);
+        socket.broadcast.emit('alerte', time);
+        socket.emit('alerte', time);
+    });
 });
 
 app.get('/about', function (req, res) {
@@ -28,9 +34,6 @@ app.get('/annee/:annee/:mois', function(req, res) {
 app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
 });
-
-
-
 
 console.log('Server running at port 8080');
 

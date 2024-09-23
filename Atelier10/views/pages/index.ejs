@@ -16,19 +16,31 @@
         <div class="container-fluid">
             <h1 class="text-center">Home</h1>
             <p class="text-center">Welcome to templating using EJS</p>
+            <p class="text-center" id="heurealarm">Heure alarme</p>
             <br>
             <img src="/images/451078746_1057719925685565_3902903204352845128_n.jpg"
                 class="mx-auto d-block rounded-circle" width="10%" alt="Image">
             <br>
             <p id="hourin" class="text-center">hh:mm:ss</p>
             <p id="hours" class="text-center">Heure : 0</p>
+            <form onsubmit="return false;">
+                <input type="time" id="time" class="form-control" placeholder="--:--">
+                <br>
+                <button type="submit" id="yolo" class="btn btn-primary">Envoyer</button>
+            </form>
+            <br>
             <div class="alert alert-success" id="alertsocket">
                 <button type="button" class="close" id="closes">&times;</button>
                 <strong>Alerte!</strong> Vous êtes connecté au serveur
             </div>
+            <div class="alert alert-danger" id="alerttime">
+                <button type="button" class="close" id="closet">&times;</button>
+                <strong>Alerte!</strong> Reveille toi
+            </div>
         </div>
     </div>
     <br>
+    
     <%-include('../partials/footer.ejs') %>
     <script>
         var hours = 0;
@@ -37,8 +49,13 @@
         var annee = 0;
         var mois = 0;
         var jour = 0;
+        var alarmeHours = 0;
+        var alarmeMinutes = 0;
+        
+
         socket.on('message', function(message) {
             $('#alertsocket').show();
+            $('#alerttime').hide();
             var now = new Date();
             hours = now.getHours();
             minutes = now.getMinutes();
@@ -50,7 +67,6 @@
             var timeString = "La date d'accès au site : " + annee.toString()+ "/" + mois.toString().padStart(2, "0") + "/"+ jour.toString().padStart(2, "0") + " " + hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0")
             $("#hourin").text(timeString);
             function updateTime() {
-
                 now = new Date();
                 hours = now.getHours();
                 minutes = now.getMinutes();
@@ -60,14 +76,37 @@
                 annee = now.getFullYear();
                 timeString = "La date actuelle : " + annee.toString()+ "/" + mois.toString().padStart(2, "0") + "/"+ jour.toString().padStart(2, "0") + " " + hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0")
                 $("#hours").text(timeString);
-            }
 
+                if (alarmeHours === hours && alarmeMinutes === minutes && seconds === 0) {
+                    //alert('Il est temps de se réveiller');
+                    $('#alerttime').show();
+                }
+            }
+            
             updateTime();
             setInterval(updateTime, 1000);
         });
 
+        $('#yolo').click(function () {
+            var time = $('#time').val();
+            socket.emit('time', time);
+        });
+
+        socket.on('alerte', function (time) {
+            $('#heurealarm').text('L\'heure d\'alarme est : ' + time);
+
+            var timeParts = time.split(':');
+            alarmeHours = parseInt(timeParts[0], 10);
+            alarmeMinutes = parseInt(timeParts[1], 10);
+        });
+        
+
         $('#closes').click(function () {
             $('#alertsocket').hide();
+        });
+
+        $('#closet').click(function () {
+            $('#alerttime').hide();
         });
     </script>    
 </body>
