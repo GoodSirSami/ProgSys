@@ -1,9 +1,17 @@
 var express = require('express');
+var mqtt = require('mqtt');
 var app = express();
+var client = mqtt.connect('mqtt://127.0.0.1:1883');
 
 app.set('view engine', 'ejs');
 
 app.use(express.static('./public'));
+
+client.on('connect', function () {
+    console.log('MQTT connected');
+});
+
+client.publish('MODULE', 'Bonjour');
 
 app.get('/', function (req, res) {
     res.render('pages/index', {title: 'Hello World', message: 'Hello World!'});
