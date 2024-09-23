@@ -1,0 +1,27 @@
+<!--
+ * @date 2024-09-09
+ * @author Samuel Des Cormiers
+ * @description Code pour le laboratoire 3
+ * @version 3.0
+-->
+<!DOCTYPE html>
+<html lang="FR">
+
+<head>
+    <%-include('../partials/head.ejs') %>
+</head>
+
+<body>
+    <%-include('../partials/header.ejs') %>
+
+    <h1 class="text-center">Home</h1>
+    <p class="text-center">Welcome to labo 3</p>
+    <br>
+    <img src="/images/451078746_1057719925685565_3902903204352845128_n.jpg"
+        class="mx-auto d-block rounded-circle" width="10%" alt="Image">
+    <br>
+    <%-include('../partials/moduleTable.ejs', {modules: modules})%>
+    <%-include('../partials/footer.ejs') %>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!--
+ * @date 2024-09-09
+ * @author Samuel Des Cormiers
+ * @description Code pour le laboratoire 3
+ * @version 3.0
+-->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">Modules</th>
+            <th class="text-center">État</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (let i = 0; i < modules.length; i++) { %>
+            <tr>
+                <td class="text-center"><a href="/module/<%=(i+1)%>" >Module <%= (i+1)%></a></td>
+                <td class="text-center"><% if(modules[i] == 1){ %>
+                    <p class="text-success text-center">ON</p>
+                <% }else{ %>
+                    <p class="text-danger text-center">OFF</p>
+                <% } %></td>
+                <td class="text-center">
+                    <a href="/controle?module=<%=(i+1)%>" class="btn btn-primary btn-warning">Toggle State</a>
+                </td>
+            </tr>
+        <% } %>
+</table>

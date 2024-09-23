@@ -1,0 +1,49 @@
+<!--
+ * @date 2024-09-09
+ * @author Samuel Des Cormiers
+ * @description Code pour le laboratoire 3
+ * @version 3.0
+-->
+<!DOCTYPE html>
+<html lang="FR">
+
+<head>
+    <%-include('../partials/head.ejs') %>
+</head>
+
+<body>
+    <%-include('../partials/header.ejs') %>
+    <h2>Tableau des contacts</h2>
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Adresse</th>
+            <th>Ville</th>
+            <th>Code postal</th>
+            <th>Téléphone</th>
+            <th>Courriel</th>
+        </tr>
+        <tr>
+            <td>Des Cormiers</td>
+            <td>Samuel</td>
+            <td>123 rue des fleurs</td>
+            <td>Montréal</td>
+            <td>H1H 1H1</td>
+            <td>514-123-4567</td>
+            <td><a href="mailto:sdcormiers@hotmail.com">E-mail</a></td>
+        </tr>
+        <tr>
+            <td>Mayo laitue</td>
+            <td>Jambon</td>
+            <td>123 rue du sandwich</td>
+            <td>Subwayville</td>
+            <td>U2U 2U2</td>
+            <td>601-420-6969</td>
+            <td><a href="mailto:jambo@salmonelle.tv">E-mail</a></td>
+        </tr>
+    </table>
+    <%-include('../partials/footer.ejs') %>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!--
+ * @date 2024-09-09
+ * @author Samuel Des Cormiers
+ * @description Code pour le laboratoire 3
+ * @version 3.0
+-->
+<!DOCTYPE html>
+<html lang="FR">
+
+<head>
+    <%-include('../partials/head.ejs') %>
+</head>
+
+<body>
+    <%-include('../partials/header.ejs') %>
+    <h1 class="text-center">Erreur 404</h1>
+    <%if(module > 6 || module < 1){%>
+       <p class="text-center">Mauvais module : <%= module %></p>
+    <%}else{%>
+        <p class="text-center">La page demandée n'existe pas</p>
+    <%}%>
+    <%-include('../partials/footer.ejs') %>
+</body>
+</html>

@@ -11,6 +11,34 @@ client.on('connect', function () {
     console.log('MQTT connected');
 });
 
+client.subscribe('MODULE/#');
+
+client.on('message', function (topic, message) {
+    console.log('Topic:', topic.toString());
+    switch (topic) {
+        case 'MODULE/1':
+            console.log('Message:', message.toString());
+            break;
+        case 'MODULE/2':
+            console.log('Message:', message.toString());
+            break;
+        case 'MODULE/3':
+            console.log('Message:', message.toString());
+            break;
+        case 'MODULE/4':
+            console.log('Message:', message.toString());
+            break;
+        case 'MODULE/5':
+            console.log('Message:', message.toString());
+            break;
+        case 'MODULE/6':
+            console.log('Message:', message.toString());
+            break;
+        default:
+            console.log('Unknown topic:', topic.toString());
+    }
+});
+
 client.publish('MODULE', 'Bonjour');
 
 app.get('/', function (req, res) {

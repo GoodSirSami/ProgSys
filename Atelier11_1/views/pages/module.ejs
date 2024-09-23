@@ -1,0 +1,28 @@
+<!--
+ * @date 2024-09-09
+ * @author Samuel Des Cormiers
+ * @description Code pour le laboratoire 3
+ * @version 3.0
+-->
+<!DOCTYPE html>
+<html lang="FR">
+
+<head>
+    <%-include('../partials/head.ejs') %>
+</head>
+
+<body>
+    <%-include('../partials/header.ejs') %>
+
+    <h2 class="text-center">Module</h2>
+
+    <p class="text-center">Module <%= module %> est à : </p>
+    <% if(status == 1){ %>
+        <p class="text-success text-center">ON</p>
+    <% }else{ %>
+        <p class="text-danger text-center">OFF</p>
+    <% } %>
+    <%-include('../partials/footer.ejs') %>
+</body>
+
+</html>
